@@ -2,7 +2,7 @@
 
 These are the go scripts I've written to solve [Project Euler](https://projecteuler.net/) problems. Each problem has it's own script file (scripts/problem000). 
 
-You can see my project on [my profile](https://projecteuler.net/progress=ddol):
+You can see my progress on [my profile](https://projecteuler.net/progress=ddol):
 
 [![Project Euler Status](https://projecteuler.net/profile/ddol.png)](https://projecteuler.net/progress=ddol)
 
