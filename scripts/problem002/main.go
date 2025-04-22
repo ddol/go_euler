@@ -3,11 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Sum of even fibonacci numbers below 4,000,000")
+	sum := 0
+	max_fibonacci := 4_000_000
+
+	fmt.Println("Calculating the sum of even fibonacci numbers below", max_fibonacci)
 
 	// create a slice to hold the fibonacci numbers, initialize with the first two (0, 1)
 	fib := []int{0, 1}
-	// sum := 0
 
 	//calculate the fibonacci numbers below 4m
 	for i := 2; ; i++ {
@@ -15,7 +17,7 @@ func main() {
 		next := fib[i-1] + fib[i-2]
 
 		// break if the next number is larger than the limit
-		if next >= 4_000_000 {
+		if next >= max_fibonacci {
 			break
 		}
 
@@ -23,7 +25,14 @@ func main() {
 		fib = append(fib, next)
 	}
 
-	// concatenate the list and print it
-	fmt.Println(fib)
+	// iterate over the list, if the number is even, add it to the sum
+	for _, v := range fib {
+		if v%2 == 0 {
+			sum += v
+		}
+	}
+
+	// Print the sum
+	fmt.Println("Sum: ", sum)
 
 }
