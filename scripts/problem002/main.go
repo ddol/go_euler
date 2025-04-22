@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	fmt.Println("Sum of even fibonacci numbers below 4,000,000")
 
-	// list of fibonacci numbers
-	fib := []int{1, 1}
+	// create a slice to hold the fibonacci numbers, initialize with the first two (0, 1)
+	fib := []int{0, 1}
 	// sum := 0
 
 	//calculate the fibonacci numbers below 4m
