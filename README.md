@@ -1,33 +1,10 @@
-# Project Euler in Go
+# My Project Euler solvers (in Go)
 
-This project contains solutions to various Project Euler problems implemented in Go. Each problem is contained within its own directory under the `scripts` folder, allowing for straightforward execution of individual scripts.
+These are the go scripts I've written to solve [Project Euler](https://projecteuler.net/) problems. Each problem has it's own script file (scripts/problem000). 
 
-## Project Structure
+You can see my project on [my profile](https://projecteuler.net/progress=ddol):
 
-```
-project-euler-go
-├── scripts
-│   ├── problem001
-│   │   └── main.go
-│   ├── problem002
-│   │   └── main.go
-│   ├── problem003
-│   │   └── main.go
-│   └── ... 
-├── pkg
-│   ├── utils
-│   │   └── math.go
-│   └── common
-│       └── helpers.go
-├── go.mod
-├── go.sum
-├── Makefile
-└── README.md
-```
-
-## Getting Started
-
-To get started with this project, ensure you have Go installed on your machine. You can download it from the official Go website.
+[![Project Euler Status](https://projecteuler.net/profile/ddol.png)](https://projecteuler.net/progress=ddol)
 
 ### Running a Script
 
@@ -45,19 +22,6 @@ This project uses Go modules for dependency management. You can install the requ
 ```bash
 go mod tidy
 ```
-
-### Makefile
-
-The Makefile provides commands to simplify the execution of scripts and management of dependencies. You can use the following commands:
-
-- `make run-problem001` - Runs the solution for Problem 001.
-- `make run-problem002` - Runs the solution for Problem 002.
-- `make run-problem003` - Runs the solution for Problem 003.
-- Add additional commands as needed for other problems.
-
-## Contributing
-
-Feel free to contribute by adding solutions to more Project Euler problems. Ensure that each solution is placed in its own directory under `scripts` and follows the same structure.
 
 ## License
 
