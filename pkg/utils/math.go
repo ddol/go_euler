@@ -22,8 +22,7 @@ func Primes(limit int) []int {
 		sieve[i] = true
 	}
 
-	// starting with the first value of primes which is true (and continuing for other true values)
-	// use the value to mark all multiples of that value as not prime up to the limit
+	// iterate over the sieve, starting at 2 and stopping at the square root of the limit
 	for i := 2; i*i <= limit; i++ {
 		// only continue if the value is still marked as prime
 		if sieve[i] {
