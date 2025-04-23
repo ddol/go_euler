@@ -22,6 +22,18 @@ func Primes(limit int) []int {
 		sieve[i] = true
 	}
 
+	// starting with the first value of primes which is true (and continuing for other true values)
+	// use the value to mark all multiples of that value as not prime up to the limit
+	for i := 2; i*i <= limit; i++ {
+		// only continue if the value is still marked as prime
+		if sieve[i] {
+			// iterate over the multiples of the value, marking them as not prime
+			for j := i * i; j <= limit; j += i {
+				sieve[j] = false
+			}
+		}
+	}
+
 	// iterate over the sieve, if the value is true add the prime for that index to the primes slice
 	for i := 2; i <= limit; i++ {
 		if sieve[i] {
