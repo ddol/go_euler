@@ -1,5 +1,7 @@
 package utils
 
+import "fmt"
+
 // Generate a slice of primes up to a given limit using the Sieve of Eratosthenes
 func Primes(limit int64) []int {
 	// if the limit is less than 2, return an empty slice
@@ -75,4 +77,19 @@ func LargestPrimeFactor(n int64) int64 {
 	}
 
 	return factor
+}
+
+// Check if a given number is palindromic (i.e. 171)
+func IsPalindromeNumber(n int64) bool {
+	// convert int to string
+	stringify_n := fmt.Sprintf("%d", n)
+
+	// reverse string
+	reverse_string := ""
+	for i := len(stringify_n) - 1; i >= 0; i-- {
+		reverse_string += string(stringify_n[i])
+	}
+
+	// are strings equal?
+	return stringify_n == reverse_string
 }
