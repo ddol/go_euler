@@ -93,3 +93,13 @@ func IsPalindromeNumber(n int64) bool {
 	// are strings equal?
 	return stringify_n == reverse_string
 }
+
+func DivisibleUpTo(n int64, limit int) bool {
+	// check if n is divisible by all numbers from 1 to limit
+	for i := 1; i <= limit; i++ {
+		if n%int64(i) != 0 {
+			return false
+		}
+	}
+	return true
+}
