@@ -4,10 +4,10 @@
 GO=go
 
 # Define the scripts directory
-SCRIPTS_DIR=problems
+SCRIPTS_DIR=scripts
 
 # List of problem scripts
-PROBLEMS=$(wildcard $(SCRIPTS_DIR)/*.go)
+PROBLEMS=$(wildcard $(SCRIPTS_DIR)/*/main.go)
 
 # Default target
 all: run
