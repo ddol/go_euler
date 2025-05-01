@@ -94,12 +94,41 @@ func IsPalindromeNumber(n int64) bool {
 	return stringify_n == reverse_string
 }
 
+// Check if n is divisible by all numbers from 1 to limit
 func DivisibleUpTo(n int64, limit int) bool {
-	// check if n is divisible by all numbers from 1 to limit
 	for i := 1; i <= limit; i++ {
 		if n%int64(i) != 0 {
 			return false
 		}
 	}
 	return true
+}
+
+// Return the sum of all numbers in the range 1..n
+func SumRange(n int) int64 {
+	result := int64(0)
+
+	for i := int64(1); i <= int64(n); i++ {
+		result += i
+	}
+
+	return result
+}
+
+// square each number in the range 1..n and return their sum
+func SumOfSquare(n int) int64 {
+	result := int64(0)
+
+	for i := int64(1); i <= int64(n); i++ {
+		result += (i * i)
+	}
+
+	return result
+}
+
+// sum the range of numbers in the range 1..n and square the sum
+func SquareOfSum(n int) int64 {
+	sum := SumRange(n)
+
+	return (sum * sum)
 }
