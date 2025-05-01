@@ -12,5 +12,4 @@ func main() {
 	result := utils.SquareOfSum(limit) - utils.SumOfSquare(limit)
 
 	fmt.Println("The result is:", result)
-
 }
