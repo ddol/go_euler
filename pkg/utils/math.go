@@ -173,6 +173,19 @@ func SquareOfSum(n int) int64 {
 	return (sum * sum)
 }
 
+func Divisors(n int64) []int64 {
+	divisors := []int64{}
+
+	// find divisors of n
+	for i := int64(1); i <= n; i++ {
+		if n%i == 0 {
+			divisors = append(divisors, i)
+		}
+	}
+
+	return divisors
+}
+
 // Create a new grid with the given number of rows and columns
 func NewGrid(rows, cols int) *Grid {
 	data := make([][]int, rows)
