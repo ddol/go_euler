@@ -254,3 +254,23 @@ func (g *Grid) MaxGridProduct(n int) int {
 	// Return the maximum product found
 	return maxProduct
 }
+
+// Given an integer n, return the next number in the Collatz sequence
+func NextCollatz(n int) int {
+	if n%2 == 0 {
+		return n / 2
+	}
+	return 3*n + 1
+}
+
+// Given an integer n, return the Collatz sequence starting from n
+func CollatzSequence(n int) []int {
+	sequence := []int{n}
+
+	for n != 1 {
+		n = NextCollatz(n)
+		sequence = append(sequence, n)
+	}
+
+	return sequence
+}
