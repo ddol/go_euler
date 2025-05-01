@@ -2,6 +2,12 @@ package utils
 
 import "fmt"
 
+// Define grid structure
+type Grid struct {
+	Data       [][]int
+	rows, cols int
+}
+
 // Generate a slice of primes up to a given limit using the Sieve of Eratosthenes
 func PrimesUpToLimit(limit int64) []int {
 	// if the limit is less than 2, return an empty slice
@@ -165,4 +171,73 @@ func SquareOfSum(n int) int64 {
 	sum := SumRange(n)
 
 	return (sum * sum)
+}
+
+// Create a new grid with the given number of rows and columns
+func NewGrid(rows, cols int) *Grid {
+	data := make([][]int, rows)
+	for i := range data {
+		data[i] = make([]int, cols)
+	}
+	return &Grid{Data: data, rows: rows, cols: cols}
+}
+
+// find the maximum product of n adjacent numbers in the grid
+func (g *Grid) MaxGridProduct(n int) int {
+	maxProduct := 0
+
+	// Check rows
+	for i := 0; i < g.rows; i++ {
+		for j := 0; j <= g.cols-n; j++ {
+			product := 1
+			for k := 0; k < n; k++ {
+				product *= g.Data[i][j+k]
+			}
+			if product > maxProduct {
+				maxProduct = product
+			}
+		}
+	}
+
+	// Check columns
+	for i := 0; i <= g.rows-n; i++ {
+		for j := 0; j < g.cols; j++ {
+			product := 1
+			for k := 0; k < n; k++ {
+				product *= g.Data[i+k][j]
+			}
+			if product > maxProduct {
+				maxProduct = product
+			}
+		}
+	}
+
+	// Check diagonals (top-left to bottom-right)
+	for i := 0; i <= g.rows-n; i++ {
+		for j := 0; j <= g.cols-n; j++ {
+			product := 1
+			for k := 0; k < n; k++ {
+				product *= g.Data[i+k][j+k]
+			}
+			if product > maxProduct {
+				maxProduct = product
+			}
+		}
+	}
+
+	// Check diagonals (top-right to bottom-left)
+	for i := 0; i <= g.rows-n; i++ {
+		for j := n - 1; j < g.cols; j++ {
+			product := 1
+			for k := 0; k < n; k++ {
+				product *= g.Data[i+k][j-k]
+			}
+			if product > maxProduct {
+				maxProduct = product
+			}
+		}
+	}
+
+	// Return the maximum product found
+	return maxProduct
 }
