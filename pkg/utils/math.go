@@ -3,7 +3,7 @@ package utils
 import "fmt"
 
 // Generate a slice of primes up to a given limit using the Sieve of Eratosthenes
-func Primes(limit int64) []int {
+func PrimesUpToLimit(limit int64) []int {
 	// if the limit is less than 2, return an empty slice
 	if limit < 2 {
 		return []int{}
@@ -43,6 +43,40 @@ func Primes(limit int64) []int {
 	}
 
 	return primes
+}
+
+func GenerateNthPrime(n int) int {
+	// if n is less than 1, return 0
+	if n < 1 {
+		return 0
+	}
+
+	// create a slice to hold the primes
+	primes := []int{}
+
+	// start with the first prime number
+	current := 2
+
+	// iterate until we have found n primes
+	for len(primes) < n {
+		// check if current is prime
+		isPrime := true
+		for _, prime := range primes {
+			if current%prime == 0 {
+				isPrime = false
+				break
+			}
+		}
+
+		// if it is prime, add it to the slice
+		if isPrime {
+			primes = append(primes, current)
+		}
+
+		current++
+	}
+
+	return primes[n-1]
 }
 
 func LargestPrimeFactor(n int64) int64 {
