@@ -274,3 +274,47 @@ func CollatzSequence(n int) []int {
 
 	return sequence
 }
+
+// Given an integer n, return the number of letters in its British English word representation without spaces or hyphens
+// e.g. 342 = "threehundredandfortytwo" = 23 letters
+func NumberToWordsNoSpaces(n int) int {
+	if n == 0 {
+		return 0
+	}
+
+	ones := []string{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	teens := []string{"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
+	tens := []string{"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
+	thousands := []string{"", "thousand"}
+
+	words := ""
+
+	if n >= 1000 {
+		words += ones[n/1000] + thousands[1]
+		n %= 1000
+	}
+
+	if n >= 100 {
+		words += ones[n/100] + "hundred"
+		if n%100 != 0 {
+			words += "and"
+		}
+		n %= 100
+	}
+
+	if n >= 20 {
+		words += tens[n/10]
+		n %= 10
+	}
+
+	if n >= 10 {
+		words += teens[n-10]
+		n = 0
+	}
+
+	if n > 0 {
+		words += ones[n]
+	}
+
+	return len(words)
+}
