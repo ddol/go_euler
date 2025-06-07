@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func makeTriangle() {
+func makeTriangle() [][]int {
 	depth := 4
 
 	triangle := make([][]int, depth)
@@ -18,8 +18,11 @@ func makeTriangle() {
 	triangle[1] = []int{7, 4}
 	triangle[2] = []int{2, 4, 6}
 	triangle[3] = []int{8, 5, 9, 3}
+
+	return triangle
 }
 
 func main() {
+	triangle := makeTriangle()
 	fmt.Println("This is going to be a problem, Number", utils.SumRange(4))
 }
