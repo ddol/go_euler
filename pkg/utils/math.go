@@ -318,3 +318,10 @@ func NumberToWordsNoSpaces(n int) int {
 
 	return len(words)
 }
+
+func Max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
