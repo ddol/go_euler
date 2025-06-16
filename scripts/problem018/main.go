@@ -5,25 +5,8 @@ import (
 	"fmt"
 )
 
-func findMaxPathSum(triangle [][]int) int {
-	// Start from the second-to-last row and move upwards
-	for i := len(triangle) - 2; i >= 0; i-- {
-		for j := 0; j < len(triangle[i]); j++ {
-			// Update the current cell with the max sum of the two adjacent cells below
-			triangle[i][j] += utils.Max(triangle[i+1][j], triangle[i+1][j+1])
-		}
-	}
-	// The top element now contains the maximum path sum
-	return triangle[0][0]
-}
-
-func makeTriangle() [][]int {
-	depth := 15
-
-	triangle := make([][]int, depth)
-	for i := range triangle {
-		triangle[i] = make([]int, i+1)
-	}
+func main() {
+	triangle := utils.MakeTriangle(15)
 
 	// initialise the triangle using slices for each row
 	triangle[0] = []int{75}
@@ -42,11 +25,7 @@ func makeTriangle() [][]int {
 	triangle[13] = []int{63, 66, 04, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31}
 	triangle[14] = []int{04, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 04, 23}
 
-	return triangle
-}
+	maxSum := utils.FindMaxTrianglePathSum(triangle)
 
-func main() {
-	triangle := makeTriangle()
-	maxSum := findMaxPathSum(triangle)
 	fmt.Println("The maximum path sum is:", maxSum)
 }

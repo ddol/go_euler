@@ -325,3 +325,24 @@ func Max(a, b int) int {
 	}
 	return b
 }
+
+func MakeTriangle(depth int) [][]int {
+	triangle := make([][]int, depth)
+	for i := range triangle {
+		triangle[i] = make([]int, i+1)
+	}
+
+	return triangle
+}
+
+func FindMaxTrianglePathSum(triangle [][]int) int {
+	// Start from the second-to-last row and move upwards
+	for i := len(triangle) - 2; i >= 0; i-- {
+		for j := 0; j < len(triangle[i]); j++ {
+			// Update the current cell with the max sum of the two adjacent cells below
+			triangle[i][j] += Max(triangle[i+1][j], triangle[i+1][j+1])
+		}
+	}
+	// The top element now contains the maximum path sum
+	return triangle[0][0]
+}
