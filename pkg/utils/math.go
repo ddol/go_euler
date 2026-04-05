@@ -158,6 +158,16 @@ func SumRange(n int) int64 {
 	return result
 }
 
+func SumList(l []int64) int64 {
+	sum := int64(0)
+
+	for i := 0; i < len(l); i++ {
+		sum += l[i]
+	}
+
+	return sum
+}
+
 // square each number in the range 1..n and return their sum
 func SumOfSquare(n int) int64 {
 	result := int64(0)
