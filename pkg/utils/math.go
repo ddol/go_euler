@@ -192,7 +192,7 @@ func Divisors(n int64) []int64 {
 	divisors := []int64{}
 
 	// find divisors of n
-	for i := int64(1); i <= n; i++ {
+	for i := int64(1); i < n; i++ {
 		if n%i == 0 {
 			divisors = append(divisors, i)
 		}
