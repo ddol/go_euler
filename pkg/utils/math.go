@@ -361,3 +361,13 @@ func FindMaxTrianglePathSum(triangle [][]int) int {
 	// The top element now contains the maximum path sum
 	return triangle[0][0]
 }
+
+func Factorial(n int) big.Int {
+	sum := big.NewInt(int64(1))
+
+	for i := 1; i <= n; i++ {
+		sum.Mul(sum, big.NewInt(int64(i)))
+	}
+
+	return *sum
+}
