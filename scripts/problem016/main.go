@@ -1,6 +1,7 @@
 package main
 
 import (
+	"euler-go/pkg/utils"
 	"fmt"
 	"math/big"
 )
@@ -15,12 +16,7 @@ func main() {
 
 	fmt.Printf("2^%d = %s\n", exponent, result.String())
 
-	resultStr := result.String()
-
-	sum := 0
-	for _, digit := range resultStr {
-		sum += int(digit - '0')
-	}
+	sum := utils.SumOfDigits(*result)
 
 	fmt.Println("The sum of the digits is:", sum)
 }

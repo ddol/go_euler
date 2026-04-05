@@ -1,6 +1,9 @@
 package utils
 
-import "fmt"
+import (
+	"fmt"
+	"math/big"
+)
 
 // Define grid structure
 type Grid struct {
@@ -171,6 +174,18 @@ func SquareOfSum(n int) int64 {
 	sum := SumRange(n)
 
 	return (sum * sum)
+}
+
+// Given a large number, sum the individual digits, e.g. f(321) = 6
+func SumOfDigits(n big.Int) int {
+	resultStr := n.String()
+
+	sum := 0
+	for _, digit := range resultStr {
+		sum += int(digit - '0')
+	}
+
+	return sum
 }
 
 func Divisors(n int64) []int64 {
