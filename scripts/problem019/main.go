@@ -14,7 +14,7 @@ func main() {
 	fmt.Printf("date range: %s to %s\n", start, end)
 
 	for d := start; end.Compare(d) == 1; d = d.Add(86400000000000) {
-		if d.Weekday() == time.Sunday {
+		if d.Day() == 1 && d.Weekday() == time.Sunday {
 			sundays += 1
 		}
 	}
